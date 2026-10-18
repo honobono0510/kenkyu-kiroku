@@ -689,6 +689,7 @@ async function dbxHandleCallback(){
   if(err){dbxStatus("Dropbox接続が許可されませんでした。");return}
   const expected=sessionStorage.getItem(DBX_STATE_KEY);
   const verifier=sessionStorage.getItem(DBX_VERIFIER_KEY);
+ dbxStatus("診断: state保存="+(!!expected)+" / verifier保存="+(!!verifier)+" / state一致="+(state===expected));
   sessionStorage.removeItem(DBX_STATE_KEY);
   sessionStorage.removeItem(DBX_VERIFIER_KEY);
   if(!expected || !verifier || state!==expected){dbxStatus("安全確認に失敗したため接続を中止しました。");return}
