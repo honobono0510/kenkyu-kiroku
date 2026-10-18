@@ -685,7 +685,7 @@ async function dbxHandleCallback(){
   const code=u.searchParams.get("code"), state=u.searchParams.get("state");
   const err=u.searchParams.get("error_description")||u.searchParams.get("error");
   if(!code && !err){dbxUi();return}
-  history.replaceState({},document.title,DROPBOX_REDIRECT_URI);
+  //　history.replaceState({},document.title,DROPBOX_REDIRECT_URI);
   if(err){dbxStatus("Dropbox接続が許可されませんでした。");return}
   const expected=sessionStorage.getItem(DBX_STATE_KEY);
   const verifier=sessionStorage.getItem(DBX_VERIFIER_KEY);
