@@ -734,8 +734,8 @@ async function dropboxSave(){
     });
     if(!r.ok) throw new Error(await r.text());
     dbxStatus("Dropboxへ保存しました。 "+new Date().toLocaleString("ja-JP"));
-  }catch(e){
-    dbxStatus("保存に失敗しました。必要なら接続し直してください。");
+}catch(e){
+  dbxStatus("保存失敗: " + e.message);
   }
 }
 async function dropboxLoad(){
